@@ -1,4 +1,5 @@
-## ✨ 세모땅(semoddang)
+## ✨ Trinkle. 
+한국 이름은 세모땅(semoddang)입니다.
 
 Trinkle = Triangle + Twinkle 의 폰용 디자인 두는 곳
 
@@ -29,7 +30,7 @@ _The goal is to connect dots and create as many non-overlapping triangles as pos
   _Squares or other polygons are not counted as valid._
 
 ---
-### 🧪 한수수의 다른 게임들 | Other Games by Soosoo Han
+## 🧪 한수수의 다른 게임들 | Other Games by Soosoo Han
 
 - **넘즐 (Numzzle)**  
   수학을 재미있게! 목표 숫자에 가까운 수식을 만드는 게임  
@@ -52,15 +53,21 @@ _The goal is to connect dots and create as many non-overlapping triangles as pos
   👉 http://soosoohan.github.io/moeum-quiz
 
 ---
-
 ## 👤 만든 사람 | Credits
 
-- 제작 | Developed by: **한수수 (Soosoo Han)**  
-- 코딩 지원 | Coding Support: **ChatGPT , 재치,  Claude**
-- 디자인 지원 | design Support : **Nature Lee**
-- ⓒ 2025 한수수.  
+- 기획 : 한수수  
+- 개발 보조 : 재치  
+- 코딩 도움 : 클라우드  
+- 디자인 : 네이처리
+- Planning: Soosoo Han  
+- Development Assistant: Jaechi  
+- Coding Support: Claude  
+- Design: Nature Lee
+
+ⓒ 2025 한수수.  
 이 게임의 모든 권리는 제작자에게 있으며,  
 **무단 복제, 배포, 2차 창작을 금지합니다.**
+
 © 2025 Soosoo Han.  
 All rights reserved.  
 **Do not copy, distribute, or create derivative works without permission.**
