@@ -6,6 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Trinkle</title>
   <style>
+
         @import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css');
 * {
             margin: 0;
@@ -169,13 +170,15 @@ width: 100vw;
 </style>
 </head>
 <body>
+  <div class="game-container">
+    <div class="header">
+      <div class="buttons">
+        <button class="game-button" onclick="restartGame()">Restart</button>
+        <button class="game-button" onclick="goToIndex()">Index</button>
+      </div>
+      <h1 class="game-title">✨ TRINKLE ✨</h1>
+    </div>
 
-<div class="game-container">
-<div class="top-bar">
-  <button onclick="restartGame()">Restart</button>
-  <button onclick="goToIndex()">Index</button>
- <span class="title">✨ TRINKLE ✨</span>
-</div>
 
 <div class="game-area" id="gameArea">
   <div class="scoreboard">
@@ -189,7 +192,6 @@ width: 100vw;
   </div>
 </div>
 
-</div>
 
   </div>
 
@@ -232,13 +234,30 @@ width: 100vw;
         console.log("Creating points");
         
         const areaRect = gameArea.getBoundingClientRect();
-        const minDistance = Math.min(areaRect.width, areaRect.height) * 0.30;
+        const minDistance = Math.min(areaRect.width, areaRect.height) * 0.20;
         const margin = 60;
         
-        // 화면 크기에 따라 점 개수 결정
-        const pointCount = 11;
+        // 점의 개수  
+        const pointCount = Math.random() < 0.45 ? 10 : 11;
         
-        console.log("Game area:", areaRect.width, areaRect.height);
+        // 금지 구역 정의
+        const forbiddenZones = [
+            { x: 0, y: 0, width: 250, height: 100 },
+            { x: areaRect.width - 250, y: areaRect.height - 180, width: 250, height: 180 }
+        ];
+
+        function isInForbiddenZone(x, y) {
+            for (let zone of forbiddenZones) {
+                if (x >= zone.x && x <= zone.x + zone.width && 
+                    y >= zone.y && y <= zone.y + zone.height) {
+                    return true;
+                }
+            }
+            return false;
+        }
+
+
+console.log("Game area:", areaRect.width, areaRect.height);
         console.log("Min distance:", minDistance);
         console.log("Point count:", pointCount);
 
@@ -499,6 +518,7 @@ width: 100vw;
         triangle.style.color = currentPlayer === 1 ? 'white' : 'lightblue';
         triangle.textContent = currentPlayer === 1 ? 'V' : 'O';
 
+   
         gameArea.appendChild(triangle);
         triangles.push({ points: trianglePoints, player: currentPlayer, element: triangle });
     }
@@ -517,7 +537,8 @@ width: 100vw;
         document.getElementById('turn2').style.display = currentPlayer === 2 ? 'inline' : 'none';
     }
 
-    // 게임 재시작 함수
+
+// 게임 재시작 함수
     function restartGame() {
         console.log("Game restart");
         
