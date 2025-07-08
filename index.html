@@ -3,9 +3,9 @@
 <html lang="ko">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Trinkle - 트링클</title>
-  <style>
+  <title>넘즐 (Numzzle)</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+<style>
     @import url('https://fonts.googleapis.com/css2?family=Gowun+Batang&display=swap');
 
 
@@ -14,17 +14,14 @@
   padding: 0;
   box-sizing: border-box;
 }
-
-body {
-  background: radial-gradient(circle at center, #0f2027, #203a43, #2c5364);
-  font-family: 'Gowun Batang', serif;
-  color: white;
-  min-height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 20px;
-}
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #209087;
+      margin: 0;
+      padding: 20px;
+      color: #fff;
+      text-align: center;
+    }
 
 .container {
   background: rgba(255, 255, 255, 0.1);
@@ -118,6 +115,7 @@ body {
   cursor: pointer;
   transition: 0.3s;
   font-family: 'Gowun Batang', serif;
+  margin: 20px 0; /* 위아래는 10px, 좌우는 0 */
 }
 
 .mode-button:hover {
@@ -206,57 +204,56 @@ body {
 </head>
 <body>
   <div class="container">
-    <h1 class="title">✨ TRINKLE ✨</h1>
-    <p class="subtitle">Trinkle = Triangle + Twinkle</p>
-
+    <h1 class="title">넘즐 (NUMZZLE) 🎯</h1>
+    <p class="subtitle">넘버(NUMBER) + 퍼즐(PUZZLE)</p>
 
 <div class="game-rules">
-  <div class="rule-title">🎮 게임 규칙 / Game Rules</div>
+
+  <div class="rule-title">🎮 게임 소개 | Game Overview</div>
+<div>
+<p>
+ 넘즐은 수학 감각과 창의력을 발휘해야 하는 재미있는 계산 게임입니다.  <br>
+     한 라운드마다 주어진 카드로 수식을 만들고,<br>
+     목표 숫자에 가장 가까운 값을 만든 사람이 점수를 얻습니다.</p>
+  <p>Numzzle is a fun and strategic math game that challenges your sense of numbers and creativity.<br>
+     Each round, you build an expression using cards to get as close as possible to the target number.</p>
+<br>
+  🎮 게임 규칙 / Game Rules
   <div>
-    • 두 사람이 번갈아 선을 그어요<br/>
-    • 삼각형을 완성하면 점수를 얻고 한 번 더!<br/>
-    • 더 많은 삼각형을 만든 사람이 이겨요!<br/>
-    • 자기 턴이 되었을 때 선을 그리세요<br/>
-    • 두 사람이 함께 하려면 아래 창에 이름을 쓰고 '둘이서 하기' 버튼을 누르세요<br/>
-    • 혼자 할 경우, 트링키와 대결하게 됩니다<br/>
-    • 졸린 트링키와 게임할 때는 사용자가 조금 유리해요<br/>
-    • 트링키와 대결하려면 '트링키와 하기' 버튼을 누르세요<br/><br/>
-    • Two players take turns drawing lines<br/>
-    • Complete a triangle to score and take another turn<br/>
-    • The player who draws more triangles wins<br/>
-    • When it’s your turn, draw a line<br/>
-    • To play together, enter both names below and press '2 Player Mode'<br/>
-    • If playing alone, you'll compete against Trinky<br/>
-    • When playing against Sleepy Trinky, the player has a slight advantage<br/>
-    • To play against Trinky, press the 'Play vs Trinky' button
-  </div>
+    • 목표 숫자를 설정하고 게임을 시작합니다.<br/>
+    • 숫자 카드와 연산 카드가 랜덤으로 주어집니다.<br/>
+    • 주어진 카드로 수식을 만들어 **목표 숫자에 가장 가까운 값**을 제출합니다. <br/>
+    • 실수했을 경우 **초기화 버튼**으로 수식을 다시 만들 수 있습니다.<br/>
+    • 결과값이 서로 다를 경우, 목표 숫자에 가까운 사람이 10점을 받습니다.<br/>
+    • 두 사람의 결과값이 같다면, 둘 다 10점을 획득합니다.<br/>
+    • 총 10라운드를 진행하며, 누적 점수가 더 높은 쪽이 승리합니다!<br/>
+    • 연습 게임은 컴퓨터와 같은 카드를 받고, 실전 게임은 다른 카드를 받습니다.<br/>
+    • 게임의 난이도에 따라   넘즐초은 쉬운 버전이고, 넘즐잼은  보통 정도의 난이도이고, 넘즐은 어려운 버전이고, 넘즐업은 계산기가 필요한 매우 어려운 버전입니다.<br/>
+    • Set the target number and start the game.<br/>
+    • You receive random number and operator cards.<br/>
+    • Use number and operator cards to build and submit an expression.<br/>
+    • Build an expression using the cards to get as close as possible to the target number.<br/>
+    • If you make a mistake, use the reset button to start your expression over.<br/>
+    • If the results differ, the one closer to the target number gets 10 points; the other gets 0.<br/>
+    • If both results are equal, both get 10 points.<br/>
+    • After 10 rounds, the player with the higher total score wins.<br/>
+    • Practice Mode uses the same cards as the computer, while Challenge Mode gives different cards.<br/>
+    • Numzzle Cho is easy, Numzzle jam is medium, and Numzzle  is hard, Numzzle Up is very hard — you might need a calculator!
+</div>
 </div>
 
-
 <form id="playerForm">
-  <div class="input-section">
-    <label class="input-label" for="player1">
-      먼저할 사람 이름 / Player 1
-    </label>
-    <input type="text" id="player1" class="name-input" placeholder="이름 / Name" maxlength="15" />
-  </div>
-
-  <div class="input-section">
-    <label class="input-label" for="player2">
-      나중에 할 사람 이름 / Player 2
-    </label>
-    <input type="text" id="player2" class="name-input" placeholder="이름 / Name" maxlength="15" />
-  </div>
-
-  <div class="button-group">
-    <button type="button" class="mode-button" onclick="location.href='T1.html'">
-      🌟 둘이서 하기 / 2 Player Mode
+    <button type="button" class="mode-button" onclick="location.href='N4.html'">
+      넘즐초 NUMZZLE CHO
     </button>
-    <button type="button" class="mode-button" onclick="location.href='T2.html'">
-      🤖 트링키와 하기 / Play vs Trinky
+      <button type="button" class="mode-button" onclick="location.href='N1.html'">
+      넘즐잼  NUMZZLEJAM
     </button>
-      <button type="button" class="mode-button" onclick="location.href='T3.html'">
-      🌙 졸린 트링키와 하기 / Play with Sleepy Trinky
+  <button type="button" class="mode-button" onclick="location.href='N2.html'">
+      넘즐       NUMZZLE
+    </button>
+      <button type="button" class="mode-button" onclick="location.href='N3.html'">
+      넘즐업   NUMZZLE UP
     </button>
   
   </div>
