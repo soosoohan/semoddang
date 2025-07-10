@@ -568,7 +568,10 @@ console.log("Game area:", areaRect.width, areaRect.height);
     // 인덱스로 가기 함수
     function goToIndex() {
         console.log("Go to index");
-        window.location.href = "index.html";
+      
+localStorage.removeItem('player1Name');
+localStorage.removeItem('player2Name');
+  window.location.href = "index.html";
     }
 
     // 페이지 로드 완료 후 실행
