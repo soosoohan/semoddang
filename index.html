@@ -2,349 +2,549 @@
 
 <html lang="ko">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Trinkle - 트링클</title>
-  <style>
-    @import url('https://fonts.googleapis.com/css2?family=Gowun+Batang&display=swap');
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trinkle Game</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Gowun+Batang&display=swap');
 
 
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-body {
-  background: radial-gradient(circle at center, #0f2027, #203a43, #2c5364);
-  font-family: 'Gowun Batang', serif;
-  color: white;
-  min-height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 20px;
-}
-
-.container {
-  background: rgba(255, 255, 255, 0.1);
-  border-radius: 20px;
-  padding: 40px 30px;
-  box-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
-  text-align: center;
-  max-width: 390px;
-  width: 100%;
-  backdrop-filter: blur(10px);
-  margin: 20px auto;
-}
-
-.title {
-  font-size: 2.2rem;
-  font-weight: bold;
-  color: #f0e68c;
-  margin-bottom: 10px;
-}
-
-.subtitle {
-  font-size: 1.1rem;
-  color: #ddd;
-  margin-bottom: 25px;
-}
-
-.game-rules {
-  background: rgba(255, 255, 255, 0.15);
-  padding: 15px;
-  margin: 20px 0;
-  border-radius: 8px;
-  text-align: left;
-  color: #eee;
-  font-size: 0.95rem;
-}
-
-.rule-title {
-  font-weight: bold;
-  margin-bottom: 8px;
-  color: #ffec8b;
-}
-
-.input-label {
-  display: block;
-  text-align: left;
-  margin-bottom: 6px;
-  font-weight: bold;
-  color: #fcefa9;
-}
-
-.input-section {
-  margin-bottom: 20px;
-}
-
-.name-input {
-  width: 100%;
-  padding: 12px;
-  font-size: 1rem;
-  border: none;
-  border-radius: 10px;
-  background: rgba(255, 255, 255, 0.2);
-  color: white;
-}
-
-.name-input::placeholder {
-  color: #ccc;
-}
-
-.name-input:focus {
-  outline: none;
-  background: rgba(255, 255, 255, 0.3);
-  box-shadow: 0 0 5px #f0e68c;
-}
-
-.button-group {
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
-  margin-top: 10px;
-}
-
-.mode-button {
-  width: 100%;
-  padding: 14px;
-  font-size: 1.05rem;
-  font-weight: bold;
-  color: #333;
-  background: #fffacd;
-  border: none;
-  border-radius: 14px;
-  cursor: pointer;
-  transition: 0.3s;
-  font-family: 'Gowun Batang', serif;
-}
-
-.mode-button:hover {
-  background: #ffffe0;
-  transform: translateY(-2px);
-}
-
-.mode-button:disabled {
-  opacity: 0.6;
-  cursor: not-allowed;
-  transform: none;
-}
-
-.mode-button:disabled:hover {
-  background: #fffacd;
-  transform: none;
-}
-
-.games-section {
-  margin-top: 30px;
-  padding-top: 20px;
-  border-top: 1px solid rgba(255, 255, 255, 0.2);
-}
-
-.game-item {
-  background: rgba(255, 255, 255, 0.1);
-  padding: 15px;
-  margin: 15px 0;
-  border-radius: 10px;
-  text-align: left;
-}
-
-.game-title {
-  font-weight: bold;
-  color: #f0e68c;
-  margin-bottom: 5px;
-  font-size: 1.1rem;
-}
-
-.game-description {
-  font-size: 0.9rem;
-  line-height: 1.4;
-  margin-bottom: 10px;
-}
-
-.game-button {
-  padding: 8px 16px;
-  font-size: 0.9rem;
-  font-weight: bold;
-  color: #333;
-  background: #fffacd;
-  border: none;
-  border-radius: 8px;
-  cursor: pointer;
-  transition: 0.3s;
-  font-family: 'Gowun Batang', serif;
-}
-
-.game-button:hover {
-  background: #ffffe0;
-  transform: translateY(-1px);
-}
-
-.credit {
-  margin-top: 30px;
-  font-size: 0.9rem;
-  color: #ccc;
-  line-height: 1.6;
-  padding-top: 20px;
-  border-top: 1px solid rgba(255, 255, 255, 0.2);
-}
-
-@media (max-width: 768px) {
-  .container {
-    max-width: 500px;
-    padding: 30px 20px;
-  }
-  
-  .title {
-    font-size: 1.8rem;
-  }
-}
-
-
-  </style>
-</head>
-<body>
-  <div class="container">
-    <h1 class="title">✨ TRINKLE ✨</h1>
-    <p class="subtitle">Trinkle = Triangle + Twinkle</p>
-
-
-<div class="game-rules">
-  <div class="rule-title">🎮 게임 규칙 / Game Rules</div>
-  <div>
-    • 두 사람이 번갈아 선을 그어요<br/>
-    • 삼각형을 완성하면 점수를 얻고 한 번 더!<br/>
-    • 더 많은 삼각형을 만든 사람이 이겨요!<br/>
-    • 자기 턴이 되었을 때 선을 그리세요<br/>
-    • 두 사람이 함께 하려면 아래 창에 이름을 쓰고 '둘이서 하기' 버튼을 누르세요<br/>
-    • 혼자 할 경우, 트링키와 대결하게 됩니다<br/>
-    • 졸린 트링키와 게임할 때는 사용자가 조금 유리해요<br/>
-    • 트링키와 대결하려면 '트링키와 하기' 버튼을 누르세요<br/><br/>
-    • Two players take turns drawing lines<br/>
-    • Complete a triangle to score and take another turn<br/>
-    • The player who draws more triangles wins<br/>
-    • When it’s your turn, draw a line<br/>
-    • To play together, enter both names below and press '2 Player Mode'<br/>
-    • If playing alone, you'll compete against Trinky<br/>
-    • When playing against Sleepy Trinky, the player has a slight advantage<br/>
-    • To play against Trinky, press the 'Play vs Trinky' button
-  </div>
-</div>
-
-
-<form id="playerForm">
-  <div class="input-section">
-    <label class="input-label" for="player1">
-      먼저할 사람 이름 / Player 1
-    </label>
-    <input type="text" id="player1" class="name-input" placeholder="이름 / Name" maxlength="15" />
-  </div>
-
-  <div class="input-section">
-    <label class="input-label" for="player2">
-      나중에 할 사람 이름 / Player 2
-    </label>
-    <input type="text" id="player2" class="name-input" placeholder="이름 / Name" maxlength="15" />
-  </div>
-
-  <div class="button-group">
-    <button type="button" class="mode-button" onclick="location.href='T1.html'">
-      🌟 둘이서 하기 / 2 Player Mode
-    </button>
-    <button type="button" class="mode-button" onclick="location.href='T2.html'">
-      🤖 트링키와 하기 / Play vs Trinky
-    </button>
-      <button type="button" class="mode-button" onclick="location.href='T3.html'">
-      🌙 졸린 트링키와 하기 / Play with Sleepy Trinky
-    </button>
-  
-  </div>
-</form>
-
-<div class="games-section">
-  <div class="game-item">
-    <div class="game-title">워퍼즈 메이트</div>
-    <div class="game-description">
-      친구와 같이 하는 단어 찾기 게임! 두근두근 보장!<br>
-      <em>Worpuzz Mate:</em> A word puzzle game to play with a friend! Thrills guaranteed!
-    </div>
-    <button class="game-button" onclick="location.href='https://soosoohan.github.io/worpuzzmate/'">워퍼즈 메이트</button>
-  </div>
-
-  <div class="game-item">
-    <div class="game-title">넘즐</div>
-    <div class="game-description">
-      숫자 카드로 목표값에 가까운 수식을 만드는 수학 게임! 두뇌 개발 보장!<br>
-      <em>Numzzle:</em> A math card game to build formulas close to the target number! Brain power guaranteed!
-    </div>
-    <button class="game-button" onclick="location.href='https://soosoohan.github.io/numzzle/'">넘즐</button>
-  </div>
-
-  <div class="game-item">
-    <div class="game-title">워퍼즈봇</div>
-    <div class="game-description">
-      똑똑해진 컴퓨터와 퍼즐 대결! 재미와 어휘력 두 마리 토끼 잡기 보장!<br>
-      <em>Worpuzz Bot:</em> Battle a smarter computer! Boost your vocabulary and enjoy the challenge!
-    </div>
-    <button class="game-button" onclick="location.href='https://soosoohan.github.io/worpuzz-bot/'">워퍼즈봇</button>
-  </div>
-
-  <div class="game-item">
-    <div class="game-title">모음퀴즈</div>
-    <div class="game-description">
-      모음만 있는 문장에서 힌트를 보고 자음을 넣어 문장을 완성하는 게임. 웃음 보장!<br>
-      <em>Moeum Quiz:</em> A Korean puzzle game where vowels guide you to the answer!
-    </div>
-    <button class="game-button" onclick="location.href='https://soosoohan.github.io/moeum-quiz/'">모음 퀴즈</button>
-  </div>
-</div>
-
-<p class="credit">
-
-* 기획·개발 : 한수수<br/>
-* 개발 보조 : 챗GPT<br/>
-* 코딩 도움 : 클라우드<br/>
-* 디자인 도움: 네이처 리<br/>
-ⓒ 2025 한수수. 이 게임의 모든 권리는 제작자인 한수수에게 있습니다.<br/> 무단 복제, 배포, 2차 창작을 금합니다.<br/>
-* Created and Developed by Soosoo Han<br/>
-* Development Assistant: ChatGPT<br/>
-* Coding Support: Cloud<br/>
-* Design Support: Nature Lee<br/>
-  Created by: Soosoo Han<br/>
-  Assistant: ChatGPT, Jaechi, Claude, Nature Lee<br/>
-  © 2025 Soosoo Han. All rights reserved.
-</p>
-
-  </div>
-
-  <script>
-    const player1Input = document.getElementById('player1');
-    const player2Input = document.getElementById('player2');
-    const startBtn = document.getElementById('startBtn');
-
-    function checkInputs() {
-      const name1 = player1Input.value.trim();
-      const name2 = player2Input.value.trim();
-      startBtn.disabled = !(name1 && name2);
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
     }
 
-    player1Input.addEventListener('input', checkInputs);
-    player2Input.addEventListener('input', checkInputs);
+    body {
+        background: radial-gradient(circle at center, #0f2027, #203a43, #2c5364);
+        font-family: 'Malgun Gothic', sans-serif;
+        color: white;
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 20px;
+    }
 
-    startBtn.addEventListener('click', function () {
-      const name1 = player1Input.value.trim();
-      const name2 = player2Input.value.trim();
-      if (name1 && name2) {
-        // Note: localStorage is not available in this environment
-        // In a real implementation, you would store the names like this:
-        // localStorage.setItem('player1Name', name1);
-        // localStorage.setItem('player2Name', name2);
-        alert(`게임을 시작합니다! ${name1} vs ${name2}`);
-        // window.location.href = 'T1.html';
-      }
+    .container {
+        background: rgba(255, 255, 255, 0.1);
+        border-radius: 20px;
+        padding: 40px 30px;
+        box-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
+        text-align: center;
+        max-width: 390px;
+        width: 100%;
+        backdrop-filter: blur(10px);
+        margin: 20px auto;
+    }
+
+    .page {
+        display: none;
+        animation: fadeIn 0.3s ease-in-out;
+    }
+
+    .page.active {
+        display: block;
+    }
+
+    @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(20px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+
+    .header {
+        margin-bottom: 30px;
+    }
+
+    .header h1 {
+        font-size: 2.2rem;
+        font-weight: bold;
+        color: #f0e68c;
+        margin-bottom: 10px;
+    }
+
+    .header p {
+        font-size: 1.1rem;
+        color: #ddd;
+        margin-bottom: 25px;
+    }
+
+    .title {
+        font-size: 2.2rem;
+        font-weight: bold;
+        color: #f0e68c;
+        margin-bottom: 10px;
+    }
+
+    .subtitle {
+        font-size: 1.1rem;
+        color: #ddd;
+        margin-bottom: 25px;
+    }
+
+    .nav-buttons {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+        margin-bottom: 30px;
+    }
+
+    .nav-btn {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        width: 100%;
+        padding: 14px;
+        font-size: 1.05rem;
+        font-weight: bold;
+        color: #333;
+        background: #fffacd;
+        border: none;
+        border-radius: 14px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        font-family: 'Gowun Batang', serif;
+    }
+
+    .nav-btn:hover {
+        background: #ffffe0;
+        transform: translateY(-2px);
+    }
+
+    .icon {
+        font-size: 1.2rem;
+    }
+
+    .back-btn {
+        background: rgba(255, 255, 255, 0.2);
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 8px;
+        cursor: pointer;
+        margin-bottom: 20px;
+        font-size: 0.9rem;
+        transition: all 0.3s ease;
+    }
+
+    .back-btn:hover {
+        background: rgba(255, 255, 255, 0.3);
+    }
+
+    .game-rules {
+        background: rgba(255, 255, 255, 0.15);
+        padding: 15px;
+        margin: 20px 0;
+        border-radius: 8px;
+        text-align: left;
+        color: #eee;
+        font-size: 0.95rem;
+        line-height: 1.6;
+    }
+
+    .rule-title {
+        font-weight: bold;
+        margin-bottom: 15px;
+        color: #ffec8b;
+        font-size: 1.1rem;
+    }
+
+    .input-section {
+        margin-bottom: 20px;
+    }
+
+    .input-label {
+        display: block;
+        text-align: left;
+        margin-bottom: 6px;
+        font-weight: bold;
+        color: #fcefa9;
+    }
+
+    .name-input {
+        width: 100%;
+        padding: 12px;
+        font-size: 1rem;
+        border: none;
+        border-radius: 10px;
+        background: rgba(255, 255, 255, 0.2);
+        color: white;
+    }
+
+    .name-input::placeholder {
+        color: #ccc;
+    }
+
+    .name-input:focus {
+        outline: none;
+        background: rgba(255, 255, 255, 0.3);
+        box-shadow: 0 0 5px #f0e68c;
+    }
+
+    .button-group {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+        margin-top: 20px;
+    }
+
+    .mode-button {
+        width: 100%;
+        padding: 14px;
+        font-size: 1.05rem;
+        font-weight: bold;
+        color: #333;
+        background: #fffacd;
+        border: none;
+        border-radius: 14px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        font-family: 'Gowun Batang', serif;
+    }
+
+    .mode-button:hover {
+        background: #ffffe0;
+        transform: translateY(-2px);
+    }
+
+    .mode-button:disabled {
+        opacity: 0.6;
+        cursor: not-allowed;
+        transform: none;
+    }
+
+    .mode-button:disabled:hover {
+        background: #fffacd;
+        transform: none;
+    }
+
+    .games-section {
+        margin-top: 30px;
+        padding-top: 20px;
+        border-top: 1px solid rgba(255, 255, 255, 0.2);
+    }
+
+    .game-item {
+        background: rgba(255, 255, 255, 0.1);
+        padding: 15px;
+        margin: 15px 0;
+        border-radius: 10px;
+        text-align: left;
+    }
+
+    .game-title {
+        font-weight: bold;
+        color: #f0e68c;
+        margin-bottom: 5px;
+        font-size: 1.1rem;
+    }
+
+    .game-description {
+        font-size: 0.9rem;
+        line-height: 1.4;
+        margin-bottom: 10px;
+    }
+
+    .game-button {
+        padding: 8px 16px;
+        font-size: 0.9rem;
+        font-weight: bold;
+        color: #333;
+        background: #fffacd;
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        font-family: 'Gowun Batang', serif;
+    }
+
+    .game-button:hover {
+        background: #ffffe0;
+        transform: translateY(-1px);
+    }
+
+    .credit {
+        margin-top: 30px;
+        font-size: 0.8rem;
+        color: #ccc;
+        line-height: 1.6;
+        padding-top: 20px;
+        border-top: 1px solid rgba(255, 255, 255, 0.2);
+    }
+
+    @media (max-width: 768px) {
+        .container {
+            max-width: 500px;
+            padding: 30px 20px;
+        }
+        
+        .title, .header h1 {
+            font-size: 1.8rem;
+        }
+    }
+</style>
+
+
+</head>
+<body>
+    <div class="container">
+        <!-- 메인 페이지 -->
+        <div id="main-page" class="page active">
+            <div class="header">
+                <h1>🎮 게임 허브</h1>
+                <p>원하는 메뉴를 선택하세요</p>
+            </div>
+
+
+        <div class="nav-buttons">
+            <button class="nav-btn" onclick="showPage('korean-page')">
+                <span class="icon">🇰🇷</span>
+                한글 설명
+            </button>
+            
+            <button class="nav-btn" onclick="showPage('english-page')">
+                <span class="icon">🇺🇸</span>
+                English Guide
+            </button>
+            
+            <button class="nav-btn" onclick="showPage('games-page')">
+                <span class="icon">🎯</span>
+                게임 플레이
+            </button>
+            
+            <button class="nav-btn" onclick="showPage('my-games-page')">
+                <span class="icon">🏆</span>
+                수수의 다른 게임
+            </button>
+        </div>
+
+        <p class="credit">
+            * 기획·개발 : 한수수<br/>
+            * 개발 보조 : 챗GPT<br/>
+            * 코딩 도움 : 클라우드<br/>
+            * 디자인 도움: 네이처 리<br/>
+            ⓒ 2025 한수수. 이 게임의 모든 권리는 제작자인 한수수에게 있습니다.<br/> 
+            무단 복제, 배포, 2차 창작을 금합니다.<br/>
+            * Created and Developed by Soosoo Han<br/>
+            * Development Assistant: ChatGPT<br/>
+            * Coding Support: Claude<br/>
+            * Design Support: Nature Lee<br/>
+            © 2025 Soosoo Han. All rights reserved.
+        </p>
+    </div>
+
+    <!-- 한글 설명 페이지 -->
+    <div id="korean-page" class="page">
+        <button class="back-btn" onclick="showPage('main-page')">← 메인으로</button>
+        
+        <h1 class="title">✨ TRINKLE ✨</h1>
+        <p class="subtitle">Trinkle = Triangle + Twinkle</p>
+
+        <div class="game-rules">
+            <div class="rule-title">🎮 게임 규칙</div>
+            • 두 사람이 번갈아 선을 그어요<br/>
+            • 삼각형을 완성하면 점수를 얻고 한 번 더!<br/>
+            • 더 많은 삼각형을 만든 사람이 이겨요!<br/>
+            • 자기 턴이 되었을 때 선을 그리세요<br/>
+            • 두 사람이 함께 하려면 아래 창에 이름을 쓰고 '둘이서 하기' 버튼을 누르세요<br/>
+            • 혼자 할 경우, 트링키와 대결하게 됩니다<br/>
+            • 졸린 트링키와 게임할 때는 사용자가 조금 유리해요<br/>
+            • 트링키와 대결하려면 '트링키와 하기' 버튼을 누르세요<br/>
+            
+            <div style="margin-top: 20px; text-align: center;">
+                <button class="nav-btn" onclick="showPage('games-page')">
+                    <span class="icon">🎯</span>
+                    게임하기
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- 영어 설명 페이지 -->
+    <div id="english-page" class="page">
+        <button class="back-btn" onclick="showPage('main-page')">← Back to Main</button>
+        
+        <h1 class="title">✨ TRINKLE ✨</h1>
+        <p class="subtitle">Trinkle = Triangle + Twinkle</p>
+
+        <div class="game-rules">
+            <div class="rule-title">🎮 Game Rules</div>
+            • Two players take turns drawing lines<br/>
+            • Complete a triangle to score and take another turn<br/>
+            • The player who draws more triangles wins<br/>
+            • When it's your turn, draw a line<br/>
+            • To play together, enter both names below and press '2 Player Mode'<br/>
+            • If playing alone, you'll compete against Trinky<br/>
+            • When playing against Sleepy Trinky, the player has a slight advantage<br/>
+            • To play against Trinky, press the 'Play vs Trinky' button<br/>
+            
+            <div style="margin-top: 20px; text-align: center;">
+                <button class="nav-btn" onclick="showPage('games-page')">
+                    <span class="icon">🎯</span>
+                    Play Game
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- 게임 페이지 -->
+    <div id="games-page" class="page">
+        <button class="back-btn" onclick="showPage('main-page')">← 메인으로</button>
+        
+        <h1 class="title">✨ TRINKLE ✨</h1>
+        <p class="subtitle">게임 모드를 선택하세요</p>
+
+        <form id="playerForm">
+            <div class="input-section">
+                <label class="input-label" for="player1">
+                    먼저할 사람 이름 / Player 1
+                </label>
+                <input type="text" id="player1" class="name-input" placeholder="이름 / Name" maxlength="15" />
+            </div>
+
+            <div class="input-section">
+                <label class="input-label" for="player2">
+                    나중에 할 사람 이름 / Player 2
+                </label>
+                <input type="text" id="player2" class="name-input" placeholder="이름 / Name" maxlength="15" />
+            </div>
+
+            <div class="button-group">
+                <button type="button" class="mode-button" id="twoPlayerBtn" onclick="startTwoPlayerGame()">
+                    🌟 둘이서 하기 / 2 Player Mode
+                </button>
+                <button type="button" class="mode-button" onclick="startTrinkyGame()">
+                    🤖 트링키와 하기 / Play vs Trinky
+                </button>
+                <button type="button" class="mode-button" onclick="startSleepyTrinkyGame()">
+                    🌙 졸린 트링키와 하기 / Play with Sleepy Trinky
+                </button>
+            </div>
+        </form>
+    </div>
+
+    <!-- 내가 만든 게임들 페이지 -->
+    <div id="my-games-page" class="page">
+        <button class="back-btn" onclick="showPage('main-page')">← 메인으로</button>
+        
+        <h1 class="title">🏆 수수의 다른 게임</h1>
+        
+        <div class="games-section">
+            <div class="game-item">
+                <div class="game-title">워퍼즈 메이트</div>
+                <div class="game-description">
+                    친구와 같이 하는 단어 찾기 게임! 두근두근 보장!<br>
+                    <em>Worpuzz Mate:</em> A word puzzle game to play with a friend! Thrills guaranteed!
+                </div>
+                <button class="game-button" onclick="window.open('https://soosoohan.github.io/worpuzzmate/', '_blank')">워퍼즈 메이트</button>
+            </div>
+
+            <div class="game-item">
+                <div class="game-title">넘즐</div>
+                <div class="game-description">
+                    숫자 카드로 목표값에 가까운 수식을 만드는 수학 게임! 두뇌 개발 보장!<br>
+                    <em>Numzzle:</em> A math card game to build formulas close to the target number! Brain power guaranteed!
+                </div>
+                <button class="game-button" onclick="window.open('https://soosoohan.github.io/numzzle/', '_blank')">넘즐</button>
+            </div>
+
+            <div class="game-item">
+                <div class="game-title">워퍼즈</div>
+                <div class="game-description">
+                    똑똑해진 컴퓨터와 퍼즐 대결! 재미와 어휘력 두 마리 토끼 잡기 보장!<br>
+                    <em>Worpuzz Bot:</em> Battle a smarter computer! Boost your vocabulary and enjoy the challenge!
+                </div>
+                <button class="game-button" onclick="window.open('https://soosoohan.github.io/worpuzz/', '_blank')">워퍼즈</button>
+            </div>
+
+            <div class="game-item">
+                <div class="game-title">모음퀴즈</div>
+                <div class="game-description">
+                    모음만 있는 문장에서 힌트를 보고 자음을 넣어 문장을 완성하는 게임. 웃음 보장!<br>
+                    <em>Moeum Quiz:</em> A Korean puzzle game where vowels guide you to the answer!
+                </div>
+                <button class="game-button" onclick="window.open('https://soosoohan.github.io/moeum-quiz/', '_blank')">모음 퀴즈</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    function showPage(pageId) {
+        // 모든 페이지 숨기기
+        const pages = document.querySelectorAll('.page');
+        pages.forEach(page => page.classList.remove('active'));
+        
+        // 선택한 페이지 보이기
+        document.getElementById(pageId).classList.add('active');
+        
+        // 페이지 맨 위로 스크롤
+        window.scrollTo(0, 0);
+    }
+
+    // 뒤로가기 버튼 처리
+    window.addEventListener('popstate', function() {
+        showPage('main-page');
     });
-  </script>
+
+    // 2인 플레이 모드 시작
+    function startTwoPlayerGame() {
+        const player1Name = document.getElementById('player1').value.trim();
+        const player2Name = document.getElementById('player2').value.trim();
+        
+        if (!player1Name || !player2Name) {
+            alert('두 플레이어의 이름을 모두 입력해주세요!');
+            return;
+        }
+        
+        // 실제 게임 페이지로 이동 (T1.html)
+        // window.location.href = 'T1.html';
+        alert(`게임을 시작합니다! ${player1Name} vs ${player2Name}`);
+    }
+
+    // 트링키와 게임 시작
+    function startTrinkyGame() {
+        const player1Name = document.getElementById('player1').value.trim() || 'Player';
+        
+        // 실제 게임 페이지로 이동 (T2.html)
+        // window.location.href = 'T2.html';
+        alert(`${player1Name} vs 트링키 게임을 시작합니다!`);
+    }
+
+    // 졸린 트링키와 게임 시작
+    function startSleepyTrinkyGame() {
+        const player1Name = document.getElementById('player1').value.trim() || 'Player';
+        
+        // 실제 게임 페이지로 이동 (T3.html)
+        // window.location.href = 'T3.html';
+        alert(`${player1Name} vs 졸린 트링키 게임을 시작합니다!`);
+    }
+
+    // 입력 필드 검증
+    const player1Input = document.getElementById('player1');
+    const player2Input = document.getElementById('player2');
+    const twoPlayerBtn = document.getElementById('twoPlayerBtn');
+
+    function checkInputs() {
+        const name1 = player1Input.value.trim();
+        const name2 = player2Input.value.trim();
+        
+        // 2인 플레이 버튼은 두 이름이 모두 입력되어야 활성화
+        if (twoPlayerBtn) {
+            twoPlayerBtn.disabled = !(name1 && name2);
+        }
+    }
+
+    if (player1Input && player2Input) {
+        player1Input.addEventListener('input', checkInputs);
+        player2Input.addEventListener('input', checkInputs);
+        
+        // 초기 상태 확인
+        checkInputs();
+    }
+</script>
+
 
 </body>
 </html>
