@@ -389,39 +389,44 @@
     </div>
 
     <!-- 게임 페이지 -->
+
+
+        
     <div id="games-page" class="page">
         <button class="back-btn" onclick="showPage('main-page')">← 메인으로</button>
         
         <h1 class="title">✨ TRINKLE ✨</h1>
         <p class="subtitle">게임 모드를 선택하세요</p>
 
-        <form id="playerForm">
-            <div class="input-section">
-                <label class="input-label" for="player1">
-                    먼저할 사람 이름 / Player 1
-                </label>
-                <input type="text" id="player1" class="name-input" placeholder="이름 / Name" maxlength="15" />
-            </div>
+        
+<!-- 👇 이름 입력 안내 및 입력창 위치 이동 -->
 
-            <div class="input-section">
-                <label class="input-label" for="player2">
-                    나중에 할 사람 이름 / Player 2
-                </label>
-                <input type="text" id="player2" class="name-input" placeholder="이름 / Name" maxlength="15" />
-            </div>
+<form id="playerForm" style="max-width: 400px; margin: 0 auto; text-align: left;">
+  <div class="input-section">
+    <label class="input-label" for="player1">
+      🖍️ 먼저할 사람 이름 / Player 1
+    </label>
+    <input type="text" id="player1" class="name-input" placeholder="이름 / Name" maxlength="15" />
+  </div>
 
-            <div class="button-group">
-                <button type="button" class="mode-button" id="twoPlayerBtn" onclick="startTwoPlayerGame()">
-                    🌟 둘이서 하기 / 2 Player Mode
-                </button>
-                <button type="button" class="mode-button" onclick="startTrinkyGame()">
-                    🤖 트링키와 하기 / Play vs Trinky
-                </button>
-                <button type="button" class="mode-button" onclick="startSleepyTrinkyGame()">
-                    🌙 졸린 트링키와 하기 / Play with Sleepy Trinky
-                </button>
+  <div class="input-section">
+    <label class="input-label" for="player2">
+      🖍️ 나중에 할 사람 이름 / Player 2
+    </label>
+    <input type="text" id="player2" class="name-input" placeholder="이름 / Name" maxlength="15" />
+  </div>
+</form><br>
+<button class="main-game-button" onclick="startTwoPlayerGame()" style="margin-top: 130px;">
+      🖍️  둘이서 하기 / 2 Player Mode
+    </button>
+       <button class="main-game-button" onclick="location.href='T2.html'">
+      🤖 트링키와 하기 / Play with Trinky
+    </button>
+       <button class="main-game-button" onclick="location.href='T3.html'">
+      🌙 졸린 트링키와 하기 / Play with sleepy Trinky
+    </button>
+      
             </div>
-        </form>
     </div>
 
     <!-- 내가 만든 게임들 페이지 -->
